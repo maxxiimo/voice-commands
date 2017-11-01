@@ -1,0 +1,49 @@
+https://support.microsoft.com/en-us/help/12445/windows-keyboard-shortcuts
+
+WINKEY + 3 # To open the first ten taskbar shortcuts, in order.
+
+This works all the way up through 0, which opens the 10th shortcut. Unfortunately, there is no way to open the 11th or higher shortcut using a single keyboard shortcut. But as you'll see below, there is in fact a way to access any shortcut on the taskbar using just the keyboard, so you can do it, with just a few extra steps.
+
+Note, too, that the WINKEY + # shortcuts work as a toggle. If Google Chrome is already open and selected, as per the preceding example, tapping WINKEY + 3 again will minimize it. Tap that combination again, and it springs back to life.
+
+
+Launch new instances of running applications or windows
+
+To open a new instance of an app that is already running, tap SHIFT + WINKEY + #. So to use the Google Chrome example again, if Chrome is already running, tapping SHIFT + WINKEY + 3 on my PC will cause a new Chrome window to open.
+Display the most recently access instance of a running application or window
+
+If you have multiple windows open for a specific application--as you may for Office applications or your web browser, you may want to return to the most recently-accessed instance of that application after getting some work done in another window. To do so, tap CTRL + WINKEY + #.
+Display the Jump List for a particular application or window
+
+To display the Jump List for a particular application or window, tap ALT + WINKEY + #. So, to display the Google Chrome Jump List, I would tap ALT + WINKEY + 3, and then could use the arrow keys to find an item, and then tap ENTER to select it.
+More useful taskbar keyboard shortcuts
+
+There are many other good taskbar-based shortcuts to remember. These include:
+
+WINKEY + D. Trigger the Show Desktop command, which minimizes all onscreen windows. Tap it again to return everything to its prior state.
+
+WINKEY + SPACE. New to Windows 7, this shortcut triggers Aero Peek, which lets you "look through" all of the open windows so you can see the icons and Windows Gadgets on your desktop. Note that you must hold down these keys to keep Aero Peek enabled. When you let go of the SPACE key, the view returns to normal.
+
+Windows 7 Tip of the Week
+
+Aero Peek lets you see under the open windows to the desktop.
+
+SHIFT + Mouse Click on a taskbar button. Open another instance of an already running application.
+
+CTRL + SHIFT + Mouse Click on a taskbar button. Open the application as an administrator. (You will receive a User Account Control confirmation dialog.)
+
+SHIFT + Right Mouse Click on a taskbar button. Display the context menu for the shortcut's underlying application.
+
+SHIFT + Right Mouse Click on a grouped taskbar button. Display the (old-school) window menu for the shortcut's underlying application.
+
+CTRL + Mouse Click on a grouped taskbar button. Repeatedly tapping the mouse button as you hold down CTRL will cause each window or tab of the underlying application to cycle to the foreground. In other words, this acts like an application-specific version of Windows Flip.
+
+WINKEY + T. As you repeatedly tap the T key, each shortcut on the taskbar is, in turn, selected. When a shortcut is selected in this fashion, you can perform other actions. For example, tapping ENTER will launch (or select, if it's already running) that application or window.
+
+Windows 7 Tip of the Week
+
+It's subtle, but there's a small selection "gleam" under the Chrome icon, indicating that it is selected.
+
+CTRL + WINKEY + B. Have you ever seen a balloon help alert window appear over the notification area but then didn't click on it quickly enough? This keyboard shortcut will switch to the application that triggered the most recent message in the notification area.
+
+WINKEY or CTRL + ESC. Either will toggle the display of the Start Menu.

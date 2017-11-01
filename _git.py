@@ -120,13 +120,13 @@ git_rule = MappingRule(
             "git grep line number":            Text("git grep --line-number -e \"\"") + Key("left"),       # git grep --line-number -e "<search>"                                | Includes line number in results.
             "git grep line number cached":     Text("git grep --line-number -cached -e \"\"") + Key("left"), # git grep --line-number --cached -e "<search>"                     | Only searches in the staging area, and includes line number in results.
 # Github -------------------------------------------------------------------------------------             // SERVICES --------------------------------------------------------------------------------------
-            "git hub add":                     Text("git remote add origin git@github.com:/.git"),         # git remote add origin git@github.com:<username>/<application>.git
-            "git hub add maxxiimo":            Text("git remote add origin git@github.com:maxxiimo/.git"), # git remote add origin git@github.com:maxxiimo/.git
-            "git hub add viewthought":         Text("git remote add origin git@github.com:viewthought/.git"), # git remote add origin git@github.com:viewthought/.git
-            "git hub add primary code":        Text("git remote add origin git@github.com:primarycode/.git"), # git remote add origin git@github.com:Ward primarycode/.git
-            "git hub delete branch":           Text("git push --tags origin :"),                           # git push --tags origin :<branch_name>
-            "git hub push":                    Text("git push -u origin master"),                          # git push -u origin master
-            "git hub push branch":             Text("git push -u origin "),                                # git push -u origin <feature_branch_name>
+            "github add":                      Text("git remote add origin git@github.com:/.git"),         # git remote add origin git@github.com:<username>/<application>.git
+            "github add maxxiimo":             Text("git remote add origin git@github.com:maxxiimo/.git"), # git remote add origin git@github.com:maxxiimo/.git
+            "github add viewthought":          Text("git remote add origin git@github.com:viewthought/.git"), # git remote add origin git@github.com:viewthought/.git
+            "github add primary code":         Text("git remote add origin git@github.com:primarycode/.git"), # git remote add origin git@github.com:Ward primarycode/.git
+            "github delete branch":            Text("git push --tags origin :"),                           # git push --tags origin :<branch_name>
+            "github push":                     Text("git push -u origin master"),                          # git push -u origin master
+            "github push branch":              Text("git push -u origin "),                                # git push -u origin <feature_branch_name>
             # "git hub shortcuts":               Key("c-slash"),                                             # Open github keyboard shortcuts legend.
 # Set Up -------------------------------------------------------------------------------------             // SET UP ----------------------------------------------------------------------------------------
             "git (init | initial commit | initialize)": Text("git init") + Key("enter"),                   # git init                         | Sets up a project with git, initializes a get directory.

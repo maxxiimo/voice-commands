@@ -16,6 +16,7 @@ windows_rule = MappingRule(
     mapping={
 
 # Terminal -----------------------------------------------------------------------------------
+            "[commander] exit":                           Key("w-f4, enter"),                                   # Exit Cmnder.
             "[terminal] exit":                            Text("exit") + Key("enter"),                          # Exit console.
             "[terminal] new console":                     Key("w-w"),                                           # Window + W             | Create new console.
             "[terminal] quit":                            Text("quit") + Key("enter"),                          # Quit console.
@@ -36,8 +37,9 @@ windows_rule = MappingRule(
             "[terminal] (left pane | left side)":         Key("apps:down, left, apps:up"),                      # Apps + Left            | Put focus to nearest pane leftwards.
             "[terminal] (right pane | right side)":       Key("apps:down, right, apps:up"),                     # Apps + Right           | Put focus to nearest pane rightwards.
 # Vim ----------------------------------------------------------------------------------------
-            "vim V I":                                    Text("vi "),
+            "(vim V I | VI VI)":                          Text("vi "),
             "[vim] sudo (V I | vim)":                     Text("sudo vi "),
+            "vim I":                                      Text("i"),                                            # To enter insert mode.
             "vim (Q | quit)":                             Text(":q") + Key("enter"),                            # To quit.
             "vim (Q A | quit all)":                       Text(":qa") + Key("enter"),                           # To quit all.
             "vim (Q bang | quit without saving)":         Text(":q!") + Key("enter"),                           # To quit without saving.
@@ -108,7 +110,8 @@ windows_rule = MappingRule(
             "[dos] change directory":                     Text("cd") + Key("enter"),                            # cd                             | Change directory.
             "[dos] change ownership":                     Text("iCACLS") + Key("enter"),                        # iCACLS                         | Change ownership.
             "[dos] check disk are":                       Text("CHKDSK /R") + Key("enter"),                     # CHKDSK /R                      | Utility to check and repair drive.
-            "[dos] clear":                                Text("cls") + Key("enter"),                           # cls                            | Clear terminal screen.
+            "dos checksum":                               Text("CertUtil -hashfile C:\ SHA256") + Key("left:7"), # CertUtil -hashfile C:\<path> <HashAlgorithm choices: MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512>
+            "dos clear":                                  Text("cls") + Key("enter"),                           # cls                            | Clear terminal screen.
             "[dos] copy":                                 Text("cp") + Key("enter"),                            # cp                             | Copy a file or directory.
             "[dos] directory":                            Text("dir") + Key("enter"),                           # dir                            |
             "[dos] directory are":                        Text("dir -R") + Key("enter"),                        # dir -R                         | List all directories and subdirectories.
@@ -136,8 +139,8 @@ windows_rule = MappingRule(
             "[dos] remove file":                          Text("rm") + Key("enter"),                            # rm                             | Remove file.
             "[dos] (robust copy | robo copy)":            Text("robocopy") + Key("enter"),                      # robocopy                       | Robust copy.
             "[dos] run as":                               Text("runas") + Key("enter"),                         # runas                          | DANGER! become super user root DANGER!
-            "[dos] see dee":                              Text("cd") + Key("enter"),                            # cd                             | Change directory.
-            "[dos] see dee (dot dot | 2)":                Text("cd..") + Key("enter"),                          # cd..
+            "dos see dee":                                Text("cd") + Key("enter"),                            # cd                             | Change directory.
+            "dos see dee (dot dot | 2)":                  Text("cd..") + Key("enter"),                          # cd..
             "[dos] see pee":                              Text("cp") + Key("enter"),                            # cp                             | Copy a file or directory.
             "[dos] see pee are":                          Text("cp -r") + Key("enter"),                         # cp -r                          | Copy a file or directory and recursively copy all of its contents.
             "[dos] select string":                        Text("select-string") + Key("enter"),                 # select-string                  | Find things inside files.

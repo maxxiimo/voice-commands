@@ -39,8 +39,8 @@ browser_rule = MappingRule(
             "[firefox] bookmark this page":     Key("c-d"),             # Ctrl + D                  | Add a bookmark for the page currently opened.
             "[firefox] bookmark this page":     Key("c-d"),             # Ctrl + D                  | Add a bookmark for the page currently opened.
             "[firefox] bookmarks [console]":    Key("c-b"),             # Ctrl + B
-            "[firefox] (sort bookmarks | firefox sort)": Key("s-f10") + Text("r"), # Shift + F10, R | Open context menu and sort list.
             "[firefox] (bookmark properties | rename bookmark)": Key("s-f10") + Text("i"),              # Shift + F10, I   | Open context menu and rename bookmark.
+            "[firefox] (bookmarks sort | sort bookmarks | [firefox] sort by name)": Key("s-f10") + Text("r"), # Shift + F10, R | Open context menu and sort list.
             "[firefox] (bookmarks (window | dashboard) | [(show | open)] all bookmarks)": Key("cs-b"),  # Ctrl + Shift + B | Open the Bookmarks window, to view all bookmarks in Firefox.
         # Address Bar
             "[firefox] (address | url)":        Key("f6"),              # F6                        | Select location bar.
@@ -92,8 +92,8 @@ browser_rule = MappingRule(
             "chrome developer":                 Key("cs-i"),            # Ctrl + Shift + I
             "chrome incognito":                 Key("cs-n"),            # Ctrl + Shift + N
 # Addresses ---------------------------------------------------------------------------------
-            "web prefix":                       Text("http://"),                                 # http://
-            "web prefix secure":                Text("https://"),                                # https://
+            "(web | URL) prefix":               Text("http://"),                                 # http://
+            "(web | URL) prefix (secure | S)":  Text("https://"),                                # https://
             "web (W W W | dub dub dub | 3 dubs | dub 3)": Text("www."),                          # www
             "localhost [3000]":                 Text("http://localhost:3000/") + Key("enter"),   # http://localhost:3000/
             "localhost (3001 | two)":           Text("http://localhost:3001/") + Key("enter"),   # http://localhost:3001/

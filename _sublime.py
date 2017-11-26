@@ -25,8 +25,8 @@ sublime_rule = MappingRule(
             "[sublime] package control":                     Key("cs-p") + Text("Package Control"),     # Ctrl + Shift + P, Package Control | Opens Package Control.
             "[sublime] switch project":                      Key("ca-p"),                               # Ctrl + Alt + P                 | Switch between projects in same window.
             "[sublime] paste and indent":                    Key("cs-v"),                               # Ctrl + Shift + V               | Indent after paste, Eliminates need to re-indent after paste of code from other sources.
-            "[sublime] [(show | hide)] sidebar":             Key("c-k, c-b"),                           # Ctrl + K, Ctrl + B             | Open and closes sidebar.
-            "[sublime] [(show | hide)] mini map":            Key("csa-m"),                              # Ctrl + Shift + Alt + M         | Toggle minimap.
+            "[sublime] [(show | hide | close)] sidebar":     Key("c-k, c-b"),                           # Ctrl + K, Ctrl + B             | Open and closes sidebar.
+            "[sublime] [(show | hide | close)] (mini map | right bar | right sidebar)": Key("csa-m"),   # Ctrl + Shift + Alt + M         | Toggle minimap.
         # Tabs
             "[sublime] close (tab | file)":                  Key("c-w"),                                # Ctrl + W                       | Closes tab/file.
             "[sublime] close all (tabs | files)":            Key("cs-w"),                               # Ctrl + Alt + W                 | Closes all tabs/files.

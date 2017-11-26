@@ -17,6 +17,10 @@ I'm sharing this list of voice command modules to help others overcome RSI/hand 
 - Table Mike 3-in-1
 - Wireless trackball (remove the trackball and use the device for clicking/scrolling only)
 
+&#8224; If you decide to try DigitalOcean go ahead and add some credits to my account by using this referral link:
+
+[DigitalOcean](http://pages.news.digitalocean.com/dcn/AyKQ30vur1Nt8H30LIWxk-j5xHmafGnoECQwn1ooO745F9qnHNMIeEAbzmTgNsm0IxJY3CxZMyxTjev35FX3Tg==/Y0VpP0qXG00gR0236IE0jD4)
+
 ## How to Use
 
 I use the commands in these modules quite a bit in my day to day programming. Some are more complete than others – for example Ruby vs. Python (as of this writing I'm just starting to learn Python), and overall the library grows as I run into things that are needed or I find better ways to do things.
@@ -64,7 +68,3 @@ So rather than create weird sounds to make things happen – in the way I need t
 ## Contribute
 
 So there it is. If you have some really good ideas to make things better, shoot me an email or submit a pull request and if it fits the mold I will add your work.
-
-&#8224; If you decide to try DigitalOcean go ahead and add some credits to my account by using my referral link:
-
-[DigitalOcean](http://pages.news.digitalocean.com/dcn/AyKQ30vur1Nt8H30LIWxk-j5xHmafGnoECQwn1ooO745F9qnHNMIeEAbzmTgNsm0IxJY3CxZMyxTjev35FX3Tg==/Y0VpP0qXG00gR0236IE0jD4)

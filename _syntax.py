@@ -1,5 +1,5 @@
 """
-    This module is for programming Elixir in Sublime or MobaXterm.
+    This module is for coding in general. Common symbols, words, syntax, etc.
 
 """
 
@@ -10,7 +10,8 @@ terminal_context = AppContext(executable="MobaXterm_Personal_7.4")
 putty_context = AppContext(executable="putty")
 cmder_context = AppContext(executable="Cmder")
 visualstudio_context = AppContext(executable="devenv")
-grammar = Grammar("syntax", context=(sublime_context | terminal_context | putty_context | cmder_context | visualstudio_context))
+octave = AppContext(executable="octave-gui")
+grammar = Grammar("syntax", context=(sublime_context | terminal_context | putty_context | cmder_context | visualstudio_context | octave))
 
 syntax_rule = MappingRule(
     name="syntax",
@@ -20,6 +21,7 @@ syntax_rule = MappingRule(
             "(bracket that | brackify)":                      Key("c-left, lbracket, c-right, rbracket"),     # [<word>]    | Add left and right brackets to selected word.
             "[code] H T T P":                                 Text("http"),                                   # http
             "[code] H T T P colon [slash slash]":             Text("http://"),                                # http://
+            "[code] (W W W | 3 dubs | W 3)":                  Text("www"),
 # Code --------------------------------------------------------------------------------------
             "[code] deaf":                                    Text("def"),                                    # def
             "[code] definition":                              Text("def\nend"),                               # def ... end
@@ -32,17 +34,25 @@ syntax_rule = MappingRule(
             "[code] null":                                    Text("null"),                                   # null
         # Abbreviations
             "code (args | arguments)":                        Text("args"),                                   # args
+            "code (bin | binary)":                            Text("bin"),
             "code (bool | boolean)":                          Text("bool "),                                  # bool        | Boolean.
+            "code (cat | concatenate)":                       Text("cat "),
+            "[code] (conf | con ef)":                         Text("conf"),
+            "code (const | constant | constructor)":          Text("const "),                                 # const       | Constant or constructor.
             "code (dir | directory)":                         Text("Dir"),                                    # Dir         | Directory.
-            "code constructor":                               Text("const "),                                 # const       | Constructor.
+            "[code] etsy":                                    Text("etc"),
+            "[code] slash etsy":                              Text("/etc/"),
             "code error":                                     Text("err"),                                    # err         | Error.
             "code capital error":                             Text("Err"),                                    # Err         | Error.
             "code funk":                                      Text("func "),                                  # func
             "code capital funk":                              Text("Func "),                                  # Func
-            "[code] lowercase HTTP":                          Text("http"),                                   # http
+            "code [lowercase] HTTP":                          Text("http"),                                   # http
             "code integer":                                   Text("int "),                                   # int         | Integer type.
+            "code (lib | library)":                           Text("lib "),
+            "code prock":                                     Text("proc"),
             "code request":                                   Text("req"),                                    # req
             "code response":                                  Text("res"),                                    # res
+            "code temp":                                      Text("tmp"),                                    # tmp
             # var
             "[code] var":                                     Text("var"),                                    # var
             "[code] var [<text>] equals":                     Text("var %(text)s = ") + Key("left:3"),        # var <name> =
@@ -64,6 +74,7 @@ syntax_rule = MappingRule(
             "[code] (spaceship | comparison)":                Text("<=>"),                                    # <=>         | Returns 0 if the first operand (item to be compared) equals the second, 1 if first operand is greater than the second, and -1 if the first operand is less than the second.
             "[code] pipe [character]":                        Text("|> "),                                    # |>
             "[code] (tilde | squiggly line)":                 Text("~"),                                      # ~
+            "[code] (tilde equals | squiggly line equals)":   Text("~"),                                      # ~=
             "[code] (tilde slash | squiggly line slash)":     Text("~/"),                                     # ~/
             # Arrows
             "code arrow":                                     Text("=>"),                                     # =>
@@ -109,7 +120,9 @@ syntax_rule = MappingRule(
             "[code] double greater than [sign]":              Text(">>"),                                     # >>
             "[code] (double less than [sign] | append)":      Text("<<"),                                     # <<
             "[code] plus [sign]":                             Text(" + "),                                    # " + "       | Insert plus sign with spaces.
+            "[code] double plus [sign]":                      Text("++"),                                     # ++
             "[code] minus [sign]":                            Text(" - "),                                    # " - "       | Insert minus sign with spaces.
+            "[code] double minus [sign]":                     Text("--"),                                     # --
             "[code] (multiplication [sign] | times)":         Text(" * "),                                    # " * "       | Insert multiplication sign with spaces.
             "[code] division [sign]":                         Text(" / "),                                    # " / "       | Insert division sign with spaces.
             "[code] plus equals":                             Text("+="),                                     # +=          | Add and assignment operators. Typically adds right operand to the left operand and assigns the result to left operand.
@@ -124,7 +137,7 @@ syntax_rule = MappingRule(
             "[code] double equals [with] quotes":             Text(" == \'\'") + Key("left"),                 # == ''
             "[code] triple equals":                           Text(" === "),                                  # " === "     | Insert triple equal sign with spaces.
             "[code] triple equals [with] quotes":             Text(" === \'\'") + Key("left"),                # === ''
-            "[code] not equals":                              Text(" != "),                                   # " != "      | Insert not equal sign with spaces.
+            "[code] not equals | bang equals":                Text(" != "),                                   # " != "      | Insert not equal syntax with spaces.
 # Ruby ---------------------------------------------------------------------------------------
     # Did not remove these commands from _ruby.py.
         # Block

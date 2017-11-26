@@ -50,7 +50,6 @@ react_rule = MappingRule(
             "react state debugger":                        Text("<pre>{JSON.stringify(this.state, null, 2)}</pre>"),         # <pre>{JSON.stringify(this.state, null, 2)}</pre> | Show state in React app.
             # Syntax
             "react var equals [<text>]":                   Text("var %(text)s = {};") + Key("left:2, enter"),                # var <name> = {}};
-            "react constant":                              Text("const"),                                                    # const
             # Comments
             "react (comment | comments)":                  Key("home") + Text("{/* ") + Key("end") + Text(" */}"),           # {/* <comment> */}                                | React comment.
             "react (begin comment | comment begin)":       Key("home") + Text("{/* "),                                       # {/* <comment>                                    | Beginning of React comment.

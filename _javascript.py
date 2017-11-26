@@ -1,5 +1,5 @@
 """
-    This module is for writing JavaScript in Sublime.
+    This module is for coding JavaScript.
 
 """
 
@@ -13,43 +13,40 @@ javascript_rule = MappingRule(
     mapping={
 
 # JavaScript ---------------------------------------------------------------------------------
-            # "javascript ":                         Text(""),                                     #
-            # "javascript ":                         Text("") + Key("enter"),                      #
-
-            "javascript alert":                        Text("alert(\'\');") + Key("left:2"),                      # alert("<alert_message>");
-            "javascript console log":                  Text("console.log();") + Key("left:2"),                    # console.log();
-            "javascript prevent default":              Text("event.preventDefault();"),                           # event.preventDefault();
+            "javascript alert":                                  Text("alert(\'\');") + Key("left:2"),                           # alert("<alert_message>");
+            "javascript console log":                            Text("console.log();") + Key("left:2"),                         # console.log();
+            "javascript prevent default":                        Text("event.preventDefault();"),                                # event.preventDefault();
         # Objects
-            "javascript object":                       Text("var object = {}"),                                   # var <object_name> = {}                                         | To create an object.
-            "javascript object inline":                Text("var object = {}") + Key("left, enter, tab")
-                                                       + Text("name: \'\',") + Key("left:2"),                     # var <object_name> = { ... name: '', ... }                      | To create an object and set properties inline.
-            "javascript object definition":            Text("object.name = \'\'") + Key("left"),                  # <object_name>.<property_name> = '<property>'                   | To set property on an object.
-            "javascript object definition brackets":   Text("object[\'name\'] = \'\'") + Key("left"),             # <object_name>['<property_name>'] = '<property>'                | To set property on an object.
-            "javascript object retrieve":              Text("object.name"),                                       # <object_name>.<property_name>                                  | To retrieve property of an object.
-            "javascript object retrieve brackets":     Text("object[\'name\']"),                                  # <object_name>['<property_name>']                               | To retrieve property of an object.
+            "javascript object [literal]":                       Text("var object = {}"),                                        # var <object_name> = {}                                         | To create an object.
+            "[javascript] inline object":                        Text("var object = {}") + Key("left, enter, tab")               # var <object_name> = { ... name: '', ... }                      | To create an object and set properties inline.
+                                                                    + Text("name: \'\',") + Key("left:2"),
+            "[javascript] object (definition | dot assignment)": Text("object.name = \'\'") + Key("left"),                       # <object_name>.<property_name> = '<property>'                   | To set property on an object.
+            "[javascript] object definition brackets":           Text("object[\'name\'] = \'\'") + Key("left"),                  # <object_name>['<property_name>'] = '<property>'                | To set property on an object.
+            "[javascript] object retrieve":                      Text("object.name"),                                            # <object_name>.<property_name>                                  | To retrieve property of an object.
+            "[javascript] object retrieve brackets":             Text("object[\'name\']"),                                       # <object_name>['<property_name>']                               | To retrieve property of an object.
         # Arrays
-            "javascript array":                        Text("var array = []") + Key("left"),                      # var <array_name> = []                                          | To create an array.
-            "javascript push":                         Text(".push()") + Key("left"),                             # .push()                                                        | Add additional values to an array.
-            "javascript slice":                        Text(".slice()") + Key("left"),                            # .slice()                                                       | Copy an array at a particular index value.
-            "javascript splice":                       Text(".splice()") + Key("left"),                           # .splice(<index>, <# of items to remove>)                       | To remove an item from an array.
-            "javascript for each":                     Text(".forEach(function(item){\n\n})") + Key("up, tab:2"), # .forEach(function(){ ... })                                    | Iterate over an array. Receives as an argument the callback function, which will be called for each item in the array while iterating over the array.
-            "javascript map":                          Text(".map(function(item){ return item })"),               # .map(function(item){ return item })                            | Will iterate over each item in the array using a callback function, bbut each value your return from that function wwill be collected inside a new array and returned by the map method.
-            "javascript filter":                       Text(".filter(function(item){ return item })"),            # .filter(function(item){ return item })                         | Applies filter on a rainy and only returns items that return true.
+            "javascript array [literal]":                        Text("var array = []") + Key("left"),                           # var <array_name> = []                                          | To create an array.
+            "javascript push":                                   Text(".push()") + Key("left"),                                  # .push()                                                        | Add additional values to an array.
+            "javascript slice":                                  Text(".slice()") + Key("left"),                                 # .slice()                                                       | Copy an array at a particular index value.
+            "javascript splice":                                 Text(".splice()") + Key("left"),                                # .splice(<index>, <# of items to remove>)                       | To remove an item from an array.
+            "javascript for each":                               Text(".forEach(function(item){\n\n})") + Key("up, tab:2"),      # .forEach(function(){ ... })                                    | Iterate over an array. Receives as an argument the callback function, which will be called for each item in the array while iterating over the array.
+            "javascript map":                                    Text(".map(function(item){ return item })"),                    # .map(function(item){ return item })                            | Will iterate over each item in the array using a callback function, bbut each value your return from that function wwill be collected inside a new array and returned by the map method.
+            "javascript filter":                                 Text(".filter(function(item){ return item })"),                 # .filter(function(item){ return item })                         | Applies filter on a rainy and only returns items that return true.
         # Functions
-            "javascript function [declaration]":       Text("function () {\n}") + Key("up, end, enter, tab")      # function <name>(<arg1, arg2, argN>){ ... return }
-                                                       + Text("return ") + Key("up, end, left:4"),
-            "javascript function expression [<text>]": Text(".%(text)s = function(){\n\n}")                       # <object>.<method> = function(<arg1, arg2, argN>){ ... return } | Used for storing a function in a variable or property.
-                                                       + Key("up, tab") + Text("return ") + Key("up, end, left:2"),
-            "var self equals this":                    Text("var self = this"),                                   # var self = this                                                | Trick to use "this" inside callback function: Freeze "this" in a local variable, then use local variable inside callback function.
-            "javascript function shorthand":           Text("(, () => {") + Key("enter") + Text("})")             # (, () => { ... })
-                                                       + Key("up, end, enter"),
+            "javascript function [declaration]":                 Text("function () {\n}") + Key("up, end, enter, tab")           # function <name>(<arg1, arg2, argN>){ ... return }
+                                                                    + Text("return ") + Key("up, end, left:4"),
+            "javascript function expression [<text>]":           Text(".%(text)s = function(){\n\n}") + Key("up, tab")           # <object>.<method> = function(<arg1, arg2, argN>){ ... return } | Used for storing a function in a variable or property.
+                                                                    + Text("return ") + Key("up, end, left:2"),
+            "var self equals this":                              Text("var self = this"),                                        # var self = this                                                | Trick to use "this" inside callback function: Freeze "this" in a local variable, then use local variable inside callback function.
+            "javascript function shorthand":                     Text("(, () => {") + Key("enter") + Text("})")                  # (, () => { ... })
+                                                                    + Key("up, end, enter"),
         # Control Structure
-            "javascript if":                           Text("if () {}") + Key("left, enter, tab"),                # if () { ... }
-            "javascript else":                         Text(" else () {}") + Key("left, enter, tab"),             # else () { ... }
+            "javascript if":                                     Text("if () {}") + Key("left, enter, tab"),                     # if () { ... }
+            "javascript else":                                   Text(" else () {}") + Key("left, enter, tab"),                  # else () { ... }
         # Methods
             # For Functions
-            "javascript call":                         Text(".call()") + Key("left"),                             # .call(<object>, 'arg1', 'arg2', 'argN')                        | Can be used on any JavaScript function to call the function. The first argument of the method will be the value assigned to "this", and then you can pass any number of arguments.
-            "javascript apply":                        Text(".apply()") + Key("left"),                            # .apply(<object>, ['arg1', 'arg2', 'argN'])                     | Same as previous, the only difference is receives arguments as an array versus a simple list.
+            "javascript call":                                   Text(".call()") + Key("left"),                                  # .call(<object>, 'arg1', 'arg2', 'argN')                        | Can be used on any JavaScript function to call the function. The first argument of the method will be the value assigned to "this", and then you can pass any number of arguments.
+            "javascript apply":                                  Text(".apply()") + Key("left"),                                 # .apply(<object>, ['arg1', 'arg2', 'argN'])                     | Same as previous, the only difference is receives arguments as an array versus a simple list.
 # Jquery -------------------------------------------------------------------------------------
             "jquery add class":                        Text(".addClass(\'\')"),                                   # .addClass('<class>')
             "jquery after":                            Text(".after(\'\')"),                                      # .after                                                         | Places content after selected element.

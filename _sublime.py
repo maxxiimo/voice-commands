@@ -27,6 +27,18 @@ sublime_rule = MappingRule(
             "[sublime] paste and indent":                    Key("cs-v"),                               # Ctrl + Shift + V               | Indent after paste, Eliminates need to re-indent after paste of code from other sources.
             "[sublime] [(show | hide | close)] sidebar":     Key("c-k, c-b"),                           # Ctrl + K, Ctrl + B             | Open and closes sidebar.
             "[sublime] [(show | hide | close)] (mini map | right bar | right sidebar)": Key("csa-m"),   # Ctrl + Shift + Alt + M         | Toggle minimap.
+        # Operations
+            "[sublime] align text":                          Key("c-f") + Text("Text(") + Key("c-d, escape, left"),                      # Align from Text("").
+            "[sublime] align Key":                           Key("c-f") + Text("Key(") + Key("c-d, escape, left"),                       # Align from Key("").
+            "[sublime] align (comment | hash | pound [sign] | number sign)": Key("c-f") + Text("#") + Key("c-d, escape, left"),          # Align from #.
+            "[sublime] align (vertical bar | pipe)":         Key("c-f") + Text("|") + Key("c-d, escape, left"),                          # Align from |.
+            "[sublime] (find | go to) text":                 Key("c-f") + Text("Text(") + Key("escape, left"),                           # Find next Text("").
+            "[sublime] (find | go to) Key":                  Key("c-f") + Text("Key(") + Key("escape, left"),                            # Find next Key("").
+            "[sublime] (find | go to) quote":                Key("c-f") + Text("\"") + Key("escape, right"),                             # Find next ".
+            "[sublime] go to second quote":                  Key("c-f") + Text("\"") + Key("enter, escape, left"),                       # Find second ".
+            "[sublime] (find | go to) (comment | hash | pound [sign] | number sign)": Key("c-f") + Text("#") + Key("escape, left"),      # Find next ".
+            "[sublime] (find | go to) (vertical bar | pipe)": Key("c-f") + Text("|") + Key("escape, left"),                              # Find next |.
+            "[sublime] (find | go to) parentheses":          Key("c-f") + Text("(") + Key("escape, right"),                              # Find next (.
         # Tabs
             "[sublime] close (tab | file)":                  Key("c-w"),                                # Ctrl + W                       | Closes tab/file.
             "[sublime] close all (tabs | files)":            Key("cs-w"),                               # Ctrl + Alt + W                 | Closes all tabs/files.

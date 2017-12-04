@@ -17,11 +17,6 @@ syntax_rule = MappingRule(
     name="syntax",
     mapping={
 
-# Miscellaneous ------------------------------------------------------------------------------
-            "(bracket that | brackify)":                      Key("c-left, lbracket, c-right, rbracket"),     # [<word>]    | Add left and right brackets to selected word.
-            "[code] H T T P":                                 Text("http"),                                   # http
-            "[code] H T T P colon [slash slash]":             Text("http://"),                                # http://
-            "[code] (W W W | 3 dubs | W 3)":                  Text("www"),
 # Code --------------------------------------------------------------------------------------
             "[code] deaf":                                    Text("def"),                                    # def
             "[code] definition":                              Text("def\nend"),                               # def ... end
@@ -138,14 +133,20 @@ syntax_rule = MappingRule(
             "[code] triple equals":                           Text(" === "),                                  # " === "     | Insert triple equal sign with spaces.
             "[code] triple equals [with] quotes":             Text(" === \'\'") + Key("left"),                # === ''
             "[code] not equals | bang equals":                Text(" != "),                                   # " != "      | Insert not equal syntax with spaces.
-# Ruby ---------------------------------------------------------------------------------------
-    # Did not remove these commands from _ruby.py.
-        # Block
-            "[code] block":                                   Text("do\nend") + Key("up, enter"),             # Start and end of block --> "do" and closing "end"
-            "[code] block do":                                Text("do ||"),                                  # Beginning of "do" block.
-            "[code] block multiline":                         Text("do ||\nend") + Key("up, enter"),          # Start and end of block --> "do" and closing "end"
-            "[code] block single line":                       Text("{ ||  }") + Key("left:5"),                # Ruby block on a single line --> Object.method { |<local_variable>| <action> }
-# Comments -----------------------------------------------------------------------------------
+            "[code] [<text>] equals":                         Text("%(text)s = "),                            # <text> =    | Equal sign, plus optional word.
+            "[code] [<text>] equals [with] quotes":           Text("%(text)s = \'\'") + Key("left"),          # <text> = '' | Equal sign single quotes, plus optional word.
+# Miscellaneous ------------------------------------------------------------------------------
+            "(bracket that | brackify)":                      Key("c-left, lbracket, c-right, rbracket"),     # [<word>]    | Add left and right brackets to selected word.
+            "[code] H T T P":                                 Text("http"),                                   # http
+            "[code] H T T P colon [slash slash]":             Text("http://"),                                # http://
+            "[code] (W W W | 3 dubs | W 3)":                  Text("www"),
+            # File Extensions ----------------------------------------------------------------------------
+            "hammel extension":                               Text(".html.haml"),                             # .html.haml
+            "elm (ending | extension)":                       Text(".elm"),                                   # .elm
+            "[elixir] (dot E X | extension | ending)":        Text(".ex"),                                    # .ex
+            "[elixir] (dot E X S | script extension | script ending)":  Text(".exs"),                         # .exs
+            "phoenix (HTML | template) (extension | ending)": Text(".html.eex"),                              # .html.eex
+# Code Comments ------------------------------------------------------------------------------
         # html
             "html (comment | comments)":                      Text("<!--  -->") + Key("left:4"),              # <!--  -->
             "html begin comment":                             Text("<!--"),                                   # <!--
@@ -194,12 +195,13 @@ syntax_rule = MappingRule(
             "rails note":                                     Text("# NOTE ccm:"),                            # # NOTE ccm:
         # Elixir
             "[elixir] (ee ex | embedded elixir) comment":     Text("<%%#  %%>") + Key("left:3"),              # <%#  %>       | comments, discarded from source
-# File Extensions ----------------------------------------------------------------------------
-            "hammel extension":                               Text(".html.haml"),                             # .html.haml
-            "elm (ending | extension)":                       Text(".elm"),                                   # .elm
-            "[elixir] (dot E X | extension | ending)":        Text(".ex"),                                    # .ex
-            "[elixir] (dot E X S | script extension | script ending)":  Text(".exs"),                         # .exs
-            "phoenix (HTML | template) (extension | ending)": Text(".html.eex"),                              # .html.eex
+# Ruby ---------------------------------------------------------------------------------------
+    # Did not remove these commands from _ruby.py.
+        # Block
+            "[code] block":                                   Text("do\nend") + Key("up, enter"),             # Start and end of block --> "do" and closing "end"
+            "[code] block do":                                Text("do ||"),                                  # Beginning of "do" block.
+            "[code] block multiline":                         Text("do ||\nend") + Key("up, enter"),          # Start and end of block --> "do" and closing "end"
+            "[code] block single line":                       Text("{ ||  }") + Key("left:5"),                # Ruby block on a single line --> Object.method { |<local_variable>| <action> }
 
             },
     extras=[

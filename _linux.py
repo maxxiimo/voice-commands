@@ -8,7 +8,8 @@ from dragonfly import (Grammar, AppContext, MappingRule, Dictation, IntegerRef, 
 terminal_context = AppContext(executable="MobaXterm_Personal_7.4")
 putty_context = AppContext(executable="putty")
 cmder_context = AppContext(executable="cmder")
-grammar = Grammar("linux", context=(terminal_context | putty_context | cmder_context))
+octave = AppContext(executable="octave-gui")
+grammar = Grammar("linux", context=(terminal_context | putty_context | cmder_context | octave))
 
 linux_rule = MappingRule(
     name="linux",

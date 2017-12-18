@@ -16,9 +16,9 @@ windows_rule = MappingRule(
     mapping={
 
 # Terminal -----------------------------------------------------------------------------------
-            "[commander] exit":                           Key("w-f4, enter"),                                   # Exit Cmnder.
-            "[terminal] exit":                            Text("exit") + Key("enter"),                          # Exit console.
             "[terminal] new console":                     Key("w-w"),                                           # Window + W             | Create new console.
+            "(close terminal | close commander)":         Key("w-f4, enter"),                                   # Close terminal/Cmnder.
+            "[terminal] exit":                            Text("exit") + Key("enter"),                          # Exit console.
             "[terminal] quit":                            Text("quit") + Key("enter"),                          # Quit console.
             "terminal yes":                               Text("y") + Key("enter"),                             # Answers yes on console and hits return key.
             # Panes / Split Screen

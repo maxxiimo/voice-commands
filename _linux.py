@@ -17,10 +17,13 @@ linux_rule = MappingRule(
 
 # Linux --------------------------------------------------------------------------------------
             "[linux] clear [terminal]":                   Text("clear") + Key("enter"),                         # clear
-            "[linux] ping google":                        Text("ping -c 3 google.com") + Key("enter"),          # Check to see if you can access a website like Google.
             "[linux] (run | repeat) [the] last command":  Text("!!") + Key("enter"),                            # Repeat last command used.
             "[linux] (run | repeat) [the] last [command] as sudo": Text("sudo !!") + Key("enter"),              # Repeat last command used as sudo.
-            "[linux] (tar | unpack)":                     Text("tar -xvzf "),                                   # tar -xvzf /path/to/yourfile.tgz                             | x for extract, v for verbose, z for gnuzip, f for file, should come last just before file name.
+            "[linux] create tar":                         Text("tar -xvzf "),                                   # tar -cvzf <filename>.tgz directory                          | Compress the contents of an archive in the tar format.
+            "[linux] (tar | unpack)":                     Text("tar -cvzf "),                                   # tar -xvzf /path/to/yourfile.tgz                             | x for extract, v for verbose, z for gnuzip, f for file, should come last just before file name.
+            "[linux] unzip":                              Text("unzip "),                                       # unzip <filename>.zip                                        | Extract files and directories from a compressed zip archive.
+            "[linux] ping google":                        Text("ping -c 3 google.com") + Key("enter"),          # Check to see if you can access a website like Google.
+            "[linux] (W get | web get)":                  Text("wget "),                                        # wget <http://example.com/file.txt>                          | Download files from the web directly, download straight into the current directory.
         # Vocabulary
             "[linux] apt":                                Text("apt "),
             "[linux] apt get":                            Text("apt-get "),
@@ -31,29 +34,33 @@ linux_rule = MappingRule(
             "[linux] man search":                         Text("/"),                                            # Search once in man.
             "[linux] man next":                           Text("n"),                                            # Search next.
             "[linux] man up":                             Text("N"),                                            # Search up.
+            "[linux] where is":                           Text("whereis "),                                     # whereis <command_name>                                      | Will display the documentation, binaries and source files of a specific command.
         # History
             "[linux] (history | show last) <n>":          Text("history %(n)d") + Key("enter"),                 # See <n> recently typed commands.
             "[linux] (history (all | list) | [show] history)": Text("history") + Key("enter"),                  # See recently typed commands.
             "[linux] history less":                       Text("history | less") + Key("enter"),                # See recently typed commands in less text editor.
-            "[linux] (history see | history (clear | delete) | (clear | delete) history)": Text("history -c") + Key("enter"), # Clear the history list. This may be combined with the other options to replace the history list completely.
-            "[linux] (history W | history (write | save) | (write | save) history)": Text("history -w") + Key("enter"), # Write out the current history list to the history file.
-            "[linux] (history see W | [history] clear and write [history])": Text("history -c -w") + Key("enter"), # Clear and write history.
+            "[linux] (history (C | clear | delete) | (clear | delete) history)": Text("history -c") + Key("enter"), # Clear the history list. This may be combined with the other options to replace the history list completely.
+            "[linux] (history (W | write | save) | (write | save) history)": Text("history -w") + Key("enter"), # Write out the current history list to the history file.
+            "[linux] (history C W | [history] clear and write [history])": Text("history -c -w") + Key("enter"), # Clear and write history.
             "[linux] [history] (execute | repeat) <n>":   Text("!%(n)d") + Key("enter"),                        # Recall and execute commands by <n> reference.
             "[linux] [history] ([execute] last command | repeat last)": Text("!!") + Key("enter"),              # Re-execute the previous command.
             "[linux] [history] insert last command":      Text("!! "),                                          # Substitute the most recent command and execute, e.g. sudo !! (will insert previous command after sudo).
             "[linux] sudo (repeat | bang)":               Text("sudo !!"),                                      # Repeat the last command with sudo.
         # Users
-            "[linux] (add | [ create] new) user":         Text("sudo adduser "),                                # adduser <name>                                              | Add a user.
+            "[linux] (add | [create] new) user":          Text("sudo adduser "),                                # adduser <name>                                              | Add a user. You will need to use passwd to sign a password to the account.
+            "[linux] (add | [create] new) group":         Text("sudo groupadd "),                               # groupadd <name>                                             | Create a new group with the options that you give it.
             "[linux] change (owner | ownership)":         Text("sudo chown "),                                  # chown [OPTION]... [OWNER][:[GROUP]] FILE...                 | Change the user and/or group ownership of each given file or directories.
             "[linux] change (owner | ownership) recursively": Text("sudo chown -R "),                           # chown -R [OWNER][:[GROUP]] FILE...                          | Change the user and/or group ownership of each given file or directories, operate on files and directories recursively.
             "[linux] change password":                    Text("passwd "),                                      # passwd <name>                                               | Change user password.
             "[linux] delete user":                        Text("sudo userdel "),                                # userdel <name>                                              | Delete a user.
             "[linux] delete user and files":              Text("sudo userdel -r "),                             # userdel -r <name>                                           | Delete a user and all the files the user created.
-            "[linux] (user mod lock | lock user account)": Text("usermod -L "),                                 # usermod -L <name>                                           | Lock user account.
-            "[linux] (user mod unlock | unlock user account)": Text("usermod -U "),                             # usermod -U <name>                                           | Unlock user account.
-            "[linux] (user mod sudo | give user sudo permissions)": Text("usermod -aG sudo "),                  # usermod -aG sudo <name>                                     | Give user sudo permissions.
+            "[linux] lock user account":                  Text("usermod -L "),                                  # usermod -L <name>                                           | Lock user account.
+            "[linux] unlock user account":                Text("usermod -U "),                                  # usermod -U <name>                                           | Unlock user account.
+            "[linux] give user sudo permissions":         Text("usermod -aG sudo "),                            # usermod -aG sudo <name>                                     | Give user sudo permissions.
             "[linux] switch user":                        Text("su "),                                          # su <name>                                                   | Add a user.
             "[linux] who am I":                           Text("whoami") + Key("enter"),                        # Which user am I.
+            "[linux] who is logged on":                   Text("who") + Key("enter"),                           # List all the users that are currently logged in and any other useful information about the logged in users.
+            "[linux] recently logged in":                 Text("last") + Key("enter"),                          # Shows a list of users who have recently been logged in.
         # System
             "([linux] time (now | and date) | what time is it)": Text("date") + Key("enter"),                   # Server date and time right now.
             "[linux] (dee F | disk space usage)":         Text("df") + Key("enter"),                            # Report file system disk space usage.
@@ -113,6 +120,8 @@ linux_rule = MappingRule(
             "[linux] L S (alpha | hidden)":               Text("ls -a") + Key("enter"),                         # bare format, include hidden files.
             "[linux] L S (P | [trailing] slash)":         Text("ls -p") + Key("enter"),                         # bare format with "/" character at the end of each directory.
             "[linux] L S F":                              Text("ls -F") + Key("enter"),                         # bare format with "/" character at the end of each directory.
+            "[linux] L S head":                           Text("ls | head") + Key("enter"),                     # Only show the first 10 entries.
+            "[linux] show tree":                          Text("tree") + Key("enter"),                          # Display a directory, all the sub-directories and files indented as a file structure.
             # One File Per Line
             "[linux] L S (1 | one per line)":             Text("ls -1") + Key("enter"),                         # bare format, one file per line.
             "[linux] L S (1 P | 1 [trailing] slash)":     Text("ls -1p") + Key("enter"),                        # bare format, one file per line with "/" character at the end of each directory.
@@ -163,6 +172,8 @@ linux_rule = MappingRule(
             "[linux] (remove | delete) file":             Text("rm "),                                          # rm <file>                                                   | Remove file.
             "[linux] (remove | delete) file F":           Text("rm -f "),                                       # rm <file> -f                                                | Force remove file.
             "[linux] (touch | (create | new) file)":      Text("touch "),                                       # touch <file_name>                                           | Create an empty file.
+            "[linux] head <n>":                           Text("head  -n -%(n)d") + Key("home, right:5"),       # Show first <n> lines of file.
+            "[linux] tail <n>":                           Text("tail  -n -%(n)d") + Key("home, right:5"),       # Show last <n> lines of file.
         # Directory
             "[linux] (make | create | new) (directory | folder)": Text("mkdir "),                               # mkdir <dirname>                                             | Make directory.
             "[linux] (make | create | new) (directory | folder) P": Text("mkdir -p "),                          # mkdir -p <dirname>                                          | Make directory. The -p flag will create nested directories, but only if they don't exist already.
@@ -241,22 +252,22 @@ linux_rule = MappingRule(
             "[linux] read from file":                     Text(" < "),                                          # Read from standard in. What are we reading from a file?
             "[linux] standard error":                     Text(" 2> "),                                         # Read from standard error. If there's an error, here's what were doing with it.
         # Change Mode
-            "[linux] (C H | change) (mod | mode) to 777":         Text("sudo chmod 777 "),                      # sudo chmod 777 <file>         | rwx rwx rwx                 | Anybody can read, write, execute.
-            "[linux] (C H | change) (mod | mode) to 775":         Text("sudo chmod 775 "),                      # sudo chmod 775 <file>         | rwx rwx r-x                 | Owner and Group can read, write, execute. Everyone else can read, execute.
-            "[linux] (C H | change) (mod | mode) to 774":         Text("sudo chmod 774 "),                      # sudo chmod 774 <file>         | rwx rwx r--                 | Owner and Group can read, write, execute.  Everyone else can read.
-            "[linux] (C H | change) (mod | mode) to 755":         Text("sudo chmod 755 "),                      # sudo chmod 755 <file>         | rwx r-x r-x                 | Owner can read, write, execute. Everyone else can read, execute.
-            "[linux] (C H | change) (mod | mode) to 700":         Text("sudo chmod 700 "),                      # sudo chmod 700 <file>         | rwx --- ---                 | Owner can read, write, execute. No one else has any rights.
-            "[linux] (C H | change) (mod | mode) to 666":         Text("sudo chmod 666 "),                      # sudo chmod 666 <file>         | rw- rw- rw-                 | Everyone can read, write.
-            "[linux] (C H | change) (mod | mode) to 664":         Text("sudo chmod 664 "),                      # sudo chmod 664 <file>         | rw- rw- r--                 | Owner and Group can read, write. Everyone else can read.
-            "[linux] (C H | change) (mod | mode) to 644":         Text("sudo chmod 644 "),                      # sudo chmod 644 <file>         | rw- r-- r--                 | Owner can read, write. Everyone else can read.
-            "[linux] (C H | change) (mod | mode) to 777 recursively": Text("sudo chmod -R 777 "),               # sudo chmod -R 777 <directory> | rwx rwx rwx                 | Anybody can read, write, execute.
-            "[linux] (C H | change) (mod | mode) to 775 recursively": Text("sudo chmod -R 775 "),               # sudo chmod -R 775 <directory> | rwx rwx r-x                 | Owner and Group can read, write, execute. Everyone else can read, execute.
-            "[linux] (C H | change) (mod | mode) to 774 recursively": Text("sudo chmod -R 774 "),               # sudo chmod -R 774 <directory> | rwx rwx r--                 | Owner and Group can read, write, execute.  Everyone else can read.
-            "[linux] (C H | change) (mod | mode) to 755 recursively": Text("sudo chmod -R 755 "),               # sudo chmod -R 755 <directory> | rwx r-x r-x                 | Owner can read, write, execute. Everyone else can read, execute.
-            "[linux] (C H | change) (mod | mode) to 700 recursively": Text("sudo chmod -R 700 "),               # sudo chmod -R 700 <directory> | rwx --- ---                 | Owner can read, write, execute. No one else has any rights.
-            "[linux] (C H | change) (mod | mode) to 666 recursively": Text("sudo chmod -R 666 "),               # sudo chmod -R 666 <directory> | rw- rw- rw-                 | Everyone can read, write.
-            "[linux] (C H | change) (mod | mode) to 664 recursively": Text("sudo chmod -R 664 "),               # sudo chmod -R 664 <directory> | rw- rw- r--                 | Owner and Group can read, write. Everyone else can read.
-            "[linux] (C H | change) (mod | mode) to 644 recursively": Text("sudo chmod -R 644 "),               # sudo chmod -R 644 <directory> | rw- r-- r--                 | Owner can read, write. Everyone else can read.
+            "[linux] (C H | change) (mod | mode) to 777":         Text("sudo chmod 777 "),                      # sudo chmod 777 <file>         | rwx rwx rwx | Anybody can read, write, execute.                                          | 0 No Permission
+            "[linux] (C H | change) (mod | mode) to 775":         Text("sudo chmod 775 "),                      # sudo chmod 775 <file>         | rwx rwx r-x | Owner and Group can read, write, execute. Everyone else can read, execute. | 1 Execute
+            "[linux] (C H | change) (mod | mode) to 774":         Text("sudo chmod 774 "),                      # sudo chmod 774 <file>         | rwx rwx r-- | Owner and Group can read, write, execute.  Everyone else can read.         | 2 Write
+            "[linux] (C H | change) (mod | mode) to 755":         Text("sudo chmod 755 "),                      # sudo chmod 755 <file>         | rwx r-x r-x | Owner can read, write, execute. Everyone else can read, execute.           | 3 Write, Execute
+            "[linux] (C H | change) (mod | mode) to 700":         Text("sudo chmod 700 "),                      # sudo chmod 700 <file>         | rwx --- --- | Owner can read, write, execute. No one else has any rights.                | 4 Read
+            "[linux] (C H | change) (mod | mode) to 666":         Text("sudo chmod 666 "),                      # sudo chmod 666 <file>         | rw- rw- rw- | Everyone can read, write.                                                  | 5 Read, Execute
+            "[linux] (C H | change) (mod | mode) to 664":         Text("sudo chmod 664 "),                      # sudo chmod 664 <file>         | rw- rw- r-- | Owner and Group can read, write. Everyone else can read.                   | 6 Read, Write
+            "[linux] (C H | change) (mod | mode) to 644":         Text("sudo chmod 644 "),                      # sudo chmod 644 <file>         | rw- r-- r-- | Owner can read, write. Everyone else can read.                             | 7 Read, Write, Execute
+            "[linux] (C H | change) (mod | mode) to 777 recursively": Text("sudo chmod -R 777 "),               # sudo chmod -R 777 <directory> | rwx rwx rwx | Anybody can read, write, execute.                                          | 
+            "[linux] (C H | change) (mod | mode) to 775 recursively": Text("sudo chmod -R 775 "),               # sudo chmod -R 775 <directory> | rwx rwx r-x | Owner and Group can read, write, execute. Everyone else can read, execute. | 
+            "[linux] (C H | change) (mod | mode) to 774 recursively": Text("sudo chmod -R 774 "),               # sudo chmod -R 774 <directory> | rwx rwx r-- | Owner and Group can read, write, execute.  Everyone else can read.         | 
+            "[linux] (C H | change) (mod | mode) to 755 recursively": Text("sudo chmod -R 755 "),               # sudo chmod -R 755 <directory> | rwx r-x r-x | Owner can read, write, execute. Everyone else can read, execute.           | 
+            "[linux] (C H | change) (mod | mode) to 700 recursively": Text("sudo chmod -R 700 "),               # sudo chmod -R 700 <directory> | rwx --- --- | Owner can read, write, execute. No one else has any rights.                | 
+            "[linux] (C H | change) (mod | mode) to 666 recursively": Text("sudo chmod -R 666 "),               # sudo chmod -R 666 <directory> | rw- rw- rw- | Everyone can read, write.                                                  | 
+            "[linux] (C H | change) (mod | mode) to 664 recursively": Text("sudo chmod -R 664 "),               # sudo chmod -R 664 <directory> | rw- rw- r-- | Owner and Group can read, write. Everyone else can read.                   | 
+            "[linux] (C H | change) (mod | mode) to 644 recursively": Text("sudo chmod -R 644 "),               # sudo chmod -R 644 <directory> | rw- r-- r-- | Owner can read, write. Everyone else can read.                             | 
         # Raspberry Pi
             "[raspberry] pi configure":                   Text("sudo raspi-config") + Key("enter"),             # Configuration program.
             "[raspberry] pi remote (server | viewing)":   Text("tightvncserver") + Key("enter"),                # Startup TightVNC server.
